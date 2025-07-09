@@ -1,0 +1,244 @@
+.body {
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    background: url('./background.png');
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+.top {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    width: 50%;
+    height: fit-content;
+    position: relative;
+}
+
+.searchbar {
+    background-color: rgb(205, 217, 232);;
+    width: 100%;
+    border-radius: 25px;
+    padding: 10px;
+    outline-style: none;
+    border: 0px;
+}
+
+.simg {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+.main {
+    height: 90vh;
+    flex-direction: row;
+}
+
+.simg:hover {
+    cursor: pointer;
+}
+
+.leftdiv {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.upchild {
+    width: 85%;
+    height: 40vh;
+    background-color: rgb(212, 212, 212, 0.4);
+    margin: auto;
+    border-radius: 10px;
+}
+
+.upchild h6 {
+    font-size: larger;
+}
+
+#cityName {
+    font-size: xx-large;
+}
+
+.downchild {
+    width: 85%;
+    height: 40vh;
+    background-color: rgb(212, 212, 212, 0.4);
+    margin: auto;
+    border-radius: 10px;
+}
+
+.line {
+    color: white;
+}
+
+#cname {
+    font-size: xx-large;
+}
+
+#temp {
+    font-size: x-large;
+}
+
+.clock {
+    border-radius: 100%;
+}
+
+.c5 {
+    font-size: x-large;
+}
+
+.forecast h6 {
+    font-size: large;
+}
+
+
+.rightdiv {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 45px;
+    gap: 20px;
+}
+
+
+.rightchild {
+    height: 27vh;
+    width: 100%;
+}
+
+.metric {
+    background-color: rgb(212, 212, 212, 0.4);
+    padding: 5% 3%;
+    width: fit-content;
+    border-radius: 15px;
+    align-items: center;
+    /* backdrop-filter: blur(15px); */
+}
+
+.rowTwodiv {
+    background-color: rgb(212, 212, 212, 0.4);
+    /* backdrop-filter: blur(15px); */
+    height: 85%;
+    width: 45%;
+    border-radius: 15px;
+
+}
+
+.AQI {
+    margin-top: 15px;
+}
+
+
+
+.timeTemp {
+    background-color: rgb(212, 212, 212, 0.4);
+    /* backdrop-filter: blur(15px); */
+    width: fit-content;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#sunriseTime, #sunsetTime{
+    font-size: large;
+}
+
+.hpfv{
+    display: grid;
+    gap: 3px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .leftdiv {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .rightdiv {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .main {
+        height: 90vh;
+        flex-direction: column;
+    }
+
+    .top {
+        width: 100%;
+    }
+
+    .search {
+        width: 85%;
+        height: fit-content;
+        position: relative;
+    }
+
+    .rowOne {
+        flex-wrap: wrap;
+        width: 85%;
+        margin: auto;
+        height: 45vh;
+    }
+
+    .rowTwo {
+        flex-direction: column;
+    }
+
+    .rowTwo {
+        gap: 10px;
+        height: 30vh;
+    }
+
+    .rowTwodiv {
+        background: rgba(212, 212, 212, 0.4);
+        /* backdrop-filter: blur(15px); */
+        width: 85%;
+        height: 85%;
+        border-radius: 15px;
+    }
+
+    .rowThree {
+        width: 85%;
+        margin: auto;
+    }
+
+    .todayTempParentDiv {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: auto;
+        gap: 15px;
+    }
+
+    .metric {
+        background-color: rgba(212, 212, 212, 0.4);
+        padding: 5% 3%;
+        width: fit-content;
+        border-radius: 15px;
+        align-items: center;
+    }
+
+    .AQI, .SM{
+        margin-top: 0px;
+    }
+
+}
