@@ -3,6 +3,7 @@
     font-family: "Comfortaa", sans-serif;
     background: url('./background.jpg') no-repeat center bottom fixed;
     background-size: cover;
+    transition: 0.6s;
 }
 
 .top {
@@ -10,16 +11,47 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: space-between;
 }
 
+
+.toggle {
+  background-color: rgb(212, 212, 212, 0.4);
+  position: absolute;
+    right: 40px;
+  width: 60px;
+  height: 4vh;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: 2px solid rgb(212, 212, 212, 0.4);
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+#tog {
+    border: none;
+    background-color: rgb(194, 194, 233);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+}
+
+/* #tog:hover {
+  
+} */
+
+
+
 .search {
+    left: 25%;
     width: 50%;
     height: fit-content;
     position: relative;
 }
 
 .searchbar {
-    background-color: rgb(205, 217, 232);;
+    background-color: rgb(205, 217, 232);
     width: 100%;
     border-radius: 25px;
     padding: 10px;

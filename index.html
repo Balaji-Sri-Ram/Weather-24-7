@@ -14,11 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 
   </head>
-  <body class="body">
+  <body class="body" id="body">
     <div class="top">
         <div class="search">
             <input type="text" class="searchbar" placeholder="Search City">
             <img src="./search.png" class="simg" width="35px" onclick="fetchData()">
+        </div>
+        <div class="toggle">
+          <span id="tog" class="tog" onclick="toggleTheme()"><img src="1.png" alt="sun"></span>
         </div>
     </div>
     <div class="main d-flex">
@@ -227,9 +230,38 @@
 
     <script>
 
+      let isDarkMode = false;
+
+      function toggleTheme() {
+        const bodyElem = document.getElementById('body');
+        const toggleButton = document.getElementById('tog');
+
+        if (!isDarkMode) {
+          
+          bodyElem.style.background = "url('./2148933766.jpg')";
+          toggleButton.innerHTML = '<img src="./2.png" alt="moon">';
+          toggleButton.style.transform = "translateX(30px)";
+        } else {
+          
+          bodyElem.style.background = "url('./background.jpg')";
+          toggleButton.innerHTML = '<img src="./1.png" alt="sun">';
+          toggleButton.style.transform = "translateX(0)";
+        }
+
+        
+        bodyElem.style.backgroundSize = "cover";
+        bodyElem.style.backgroundRepeat = "no-repeat";
+        bodyElem.style.backgroundPosition = "center bottom";
+        bodyElem.style.backgroundAttachment = "fixed";
+
+        isDarkMode = !isDarkMode;
+      }
+
+        
+
       function dateFormat(timestamp) {
-            const date = new Date(timestamp * 1000); // Multiply by 1000 to convert from seconds to milliseconds
-            return date.toLocaleString();// Convert to local time format and return it
+            const date = new Date(timestamp * 1000); 
+            return date.toLocaleString();
         }
 
 
@@ -262,19 +294,19 @@
 
                 let dailyForecasts = {};
 
-                // Extract unique daily data
+                
                 data.list.forEach(item => {
-                    let date = item.dt_txt.split(" ")[0]; // Extract date only
+                    let date = item.dt_txt.split(" ")[0]; 
                     if (!dailyForecasts[date]) {
                         dailyForecasts[date] = {
-                            temp: item.main.temp.toFixed(1), // Round temperature
-                            icon: item.weather[0].icon, // Weather icon
-                            day: new Date(date).toLocaleDateString('en-US', { weekday: 'long' }) // Get day name
+                            temp: item.main.temp.toFixed(1), 
+                            icon: item.weather[0].icon, 
+                            day: new Date(date).toLocaleDateString('en-US', { weekday: 'long' }) 
                         };
                     }
                 });
 
-                // Get first 5 unique days
+                
                 let forecastHtml = "";
                 Object.keys(dailyForecasts).slice(0, 5).forEach(date => {
                     let forecast = dailyForecasts[date];
@@ -308,17 +340,17 @@
                 }
                 const data = await response.json();
 
-                let todayDate = new Date().toISOString().split("T")[0]; // Get today's date (YYYY-MM-DD)
-                let todayForecasts = data.list.filter(item => item.dt_txt.startsWith(todayDate)); // Get today's data
+                let todayDate = new Date().toISOString().split("T")[0]; 
+                let todayForecasts = data.list.filter(item => item.dt_txt.startsWith(todayDate)); 
 
-                // Select specific time intervals (e.g., every 3 hours from the API)
-                let selectedHours = todayForecasts.slice(0, 6); // Get first 6 hourly forecasts
+                
+                let selectedHours = todayForecasts.slice(0, 6); 
 
                 let todayHtml = "";
                 selectedHours.forEach(item => {
                     let time = new Date(item.dt_txt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }); // Format time
-                    let temp = item.main.temp.toFixed(1); // Round temperature
-                    let icon = item.weather[0].icon; // Weather icon
+                    let temp = item.main.temp.toFixed(1); 
+                    let icon = item.weather[0].icon; 
 
                     todayHtml += `
                         <div class="timeTemp">
@@ -356,14 +388,14 @@
         $("#visibility")[0].innerText=formattedData.visibility
 
 
-        //Updating date and time
+        
         let properDate = dateFormat(formattedData.dt);
         let date = properDate.split(',')[0]
         let time = properDate.split(',')[1]
         $("#date")[0].innerText = date;
         $("#time")[0].innerText = time
 
-        //updating sunrise and sunset
+        
         let sunriseTimeStamp = formattedData.sys.sunrise;
         let sunsetTimeStamp = formattedData.sys.sunset;
         let properSunriseTime = dateFormat(sunriseTimeStamp).split(',')[1]
