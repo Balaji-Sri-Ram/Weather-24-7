@@ -1,6 +1,6 @@
-# Weather‑24/7 – Your Around‑the‑Clock Weather Companion
+# Weather 24/7 – Your Around‑the‑Clock Weather Companion
 
-**Weather‑24/7** is a responsive, web‑based weather application that provides users with real‑time weather updates and forecasts in a visually engaging interface.
+**Weather 24/7** is a responsive, web‑based weather application that provides users with real‑time weather updates and forecasts in a visually engaging interface.
 
 ##  What purpose does this website serve?
 
